@@ -39,13 +39,14 @@ a {
 /* reuse style start */
 
 .margin-x {
-  margin-left: 120px;
-  margin-right: 120px;
+  margin-left: 12rem;
+  margin-right: 12rem;
 }
 
 .head-text {
   font-family: var(--secondary-font);
   font-size: 3rem;
+  letter-spacing: 0.1rem;
   line-height: 100%;
   font-weight: 400;
   color: #fff;
@@ -68,7 +69,7 @@ nav {
   width: 100%;
   justify-content: space-around;
   align-items: center;
-  margin-top: 60px;
+  margin-top: 6rem;
   position: absolute;
 }
 
@@ -78,7 +79,7 @@ nav ul {
   align-items: center;
   gap: 4rem;
   color: #fff;
-  padding-inline-start: 0px;
+  padding-inline-start: 0;
   list-style-type: none;
 }
 
@@ -90,8 +91,8 @@ nav ul li {
 }
 
 .register {
-  border: solid 1px #fff;
-  border-radius: 50px;
+  border: 0.1rem solid #fff;
+  border-radius: 5rem;
   padding: 1.6rem 3rem;
 }
 .register a {
@@ -104,7 +105,7 @@ nav ul li {
 .hero-section {
   background-color: #333;
   background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url("/assets/hero.png");
+    url("assets/hero.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover; /* or `contain` based on your need */
@@ -117,9 +118,9 @@ nav ul li {
 }
 
 .hero-content {
-  margin-top: 100px;
+  margin-top: 10rem;
   display: flex;
-  gap: 100px;
+  gap: 10rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -134,8 +135,7 @@ nav ul li {
 }
 
 .hero-text h2 {
-  max-width: 1195px;
-  margin-top: 30px;
+  margin-top: 3rem;
   font-size: 7rem;
   font-weight: 500;
   line-height: 100%;
@@ -149,7 +149,7 @@ nav ul li {
 }
 
 .hero-text p {
-  max-width: 921px;
+  max-width: 92.1rem;
   font-size: 2.4rem;
   font-weight: 300;
   line-height: 120%;
@@ -170,7 +170,7 @@ nav ul li {
   font-size: 2rem;
   font-weight: 600;
   line-height: 100%;
-  border-radius: 50px;
+  border-radius: 5rem;
 }
 
 .hero-btn .btn-fill {
@@ -178,7 +178,7 @@ nav ul li {
 }
 
 .hero-btn .btn-stroke {
-  border: 1px solid #fff;
+  border: 0.1rem solid #fff;
   box-sizing: border-box;
 }
 /* header stop  */
@@ -187,7 +187,7 @@ nav ul li {
 
 main {
   background-color: var(--primary-color);
-  background-image: url("/assets/bplc.png");
+  background-image: url("assets/bplc.png");
   background-repeat: repeat-y;
   background-position: top center;
   background-size: contain;
@@ -201,8 +201,8 @@ main {
 
 .count-container {
   padding: 6.4rem 12.7rem;
-  border: 2px solid #fff;
-  border-radius: 16px;
+  border: 0.2rem solid #fff;
+  border-radius: 1.6rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -215,7 +215,7 @@ main {
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  gap: 40px;
+  gap: 4rem;
 }
 
 .comesoon h2 {
@@ -225,7 +225,7 @@ main {
   font-weight: 700;
   line-height: 100%;
   color: #fff;
-  letter-spacing: 0%;
+  letter-spacing: 0.4rem;
 }
 
 .timer {
@@ -234,9 +234,9 @@ main {
   align-items: start;
   justify-content: center;
   gap: 4rem;
-  border: 1.5px solid #fff;
-  border-radius: 8px;
-  padding: 14px 40px;
+  border: 0.15rem solid #fff;
+  border-radius: 0.8rem;
+  padding: 1.4rem 4rem;
 }
 
 .timer div {
@@ -244,13 +244,14 @@ main {
   font-size: 9.6rem;
   color: #fff;
   font-weight: 700;
+  letter-spacing: 0.4rem;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
 .timer span {
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
   display: block;
 }
@@ -260,7 +261,7 @@ main {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.8rem;
 }
 
 .count-second-item p {
@@ -268,7 +269,7 @@ main {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  font-size: 16px;
+  font-size: 1.6rem;
   color: #fff;
   gap: 1px;
 }
@@ -281,18 +282,18 @@ main {
   display: flex;
   width: 100%;
   background: white;
-  padding: 8px;
-  border-radius: 8px;
-  margin-top: -4px;
-  max-width: 600px;
+  padding: 0.8rem;
+  border-radius: 0.8rem;
+  margin-top: -0.4rem;
+  max-width: 60rem;
 }
 
 .email-input {
   flex: 1;
-  padding: 12px 16px;
+  padding: 1.2rem 1.6rem;
   border: none;
   outline: none;
-  font-size: 16px;
+  font-size: 1.6rem;
   color: var(--primary-color);
 }
 
@@ -300,16 +301,16 @@ main {
   background-color: var(--primary-color);
   color: white;
   border: none;
-  padding: 12px 20px;
-  font-size: 16px;
-  border-radius: 4px;
-  box-shadow: 0px 4px 4px 0px rgba(172, 189, 252, 1);
+  padding: 1.2rem 2rem;
+  font-size: 1.6rem;
+  border-radius: 0.4rem;
+  box-shadow: 0 0.4rem 0.4rem 0 rgba(172, 189, 252, 1);
   cursor: pointer;
   transition: transform 0.2s ease;
 }
 
 .submit-btn:hover {
-  transform: translateY(-2px);
+  transform: translateY(-0.2rem);
 }
 
 /* about section start  */
@@ -350,13 +351,13 @@ main {
   display: flex;
   align-items: start;
   justify-content: center;
-  gap: 12px;
+  gap: 1.2rem;
   flex-direction: column;
   background-color: #fff;
   color: var(--primary-color);
   padding: 2.4rem;
   text-align: left;
-  border-radius: 16px;
+  border-radius: 1.6rem;
 }
 
 .about-card-container .card:first-of-type {
@@ -369,13 +370,13 @@ main {
 }
 
 .about-card-container .card p {
-  max-width: 400px;
+  max-width: 40rem;
   font-size: 1.6rem;
   font-weight: 400;
 }
 
 .about-card-container .card a {
-  font-size: 12px;
+  font-size: 1.2rem;
   font-weight: 600;
   color: var(--primary-color);
 }
@@ -389,7 +390,7 @@ main {
   justify-content: center;
   flex-direction: column;
   align-items: start;
-  gap: 50px;
+  gap: 5rem;
   color: #fff;
 }
 
@@ -399,51 +400,95 @@ main {
 
 .support-section .btn {
   color: var(--primary-color);
-  padding: 12px 24px;
+  padding: 1.2rem 2.4rem;
   font-size: 1.6rem;
-  font-weight: 600;
+  font-weight: 60rem;
   background-color: #fff;
-  border-radius: 50px;
+  border-radius: 5rem;
   cursor: pointer;
 }
 /* support section end */
 
 /* Get Ready section start  */
-.getready-section {
+.getready-section,
+.teamlead-section {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-items: start;
-  gap: 8px;
+  align-items: center;
+  gap: 0.8rem;
   color: #fff;
 }
+.getready-section p,
+.teamlead-section p {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+
 /* support section end */
 
 /* prepare section start  */
-.prepare-section {
+.prepare-box {
   display: flex;
-  justify-content: center;
-  align-items: start;
-  gap: 30px;
+  height: 24rem;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6.3rem;
+  text-align: center;
   color: var(--primary-color);
   background-color: #fff;
+  border-radius: 1.6rem;
+  overflow: hidden;
 }
 
-.prepare-section h2 {
+.prepare-box h2 {
   color: var(--primary-color);
 }
 .event-date {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  gap: 36px;
+  width: 59.8rem;
+  align-self: center;
 }
-.venue {
-  font-size: 40px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-  height: 8.2rem;
-  width: 9rem;
+.event-date h3 {
+  margin-top: 4rem;
 }
+.event-date p {
+  margin-top: 1.6rem;
+}
+.event-text {
+  width: 50.7rem;
+  height: 18.8rem;
+}
+.event-text h2 {
+  text-align: left;
+  margin-bottom: 2.4rem;
+}
+.event-text p {
+  text-align: left;
+}
+
+.venue,
+.date,
+.time {
+  font-size: 1.8rem;
+}
+/* Ends of get ready section */
+
+/* Team lead section */
+.face-box {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 133px;
+  width: 120rem;
+  height: 59.2rem;
+}
+.face {
+  height: 20rem;
+  width: 20rem;
+  border-radius: 16rem;
+}
+
 /* main ends here  */
