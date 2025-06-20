@@ -2,6 +2,10 @@
 
 :root {
   --primary-color: #0532d3;
+
+  /* fonts */
+  --primary-font: "sora", sans-serif;
+  --secondary-font: "CoolveticaRg-Regular V1", sans-serif;
 }
 
 * {
@@ -16,7 +20,7 @@ html {
 }
 
 body {
-  font-family: "Sora", sans-serif;
+  font-family: var(--primary-font);
   font-optical-sizing: auto;
   background-color: #333;
   margin: 0;
@@ -40,11 +44,12 @@ a {
 }
 
 .head-text {
+  font-family: var(--secondary-font);
   font-size: 3rem;
   line-height: 100%;
   font-weight: 400;
   color: #fff;
-  text-align: left;
+  text-align: center;
   width: 100%;
 }
 
@@ -140,6 +145,7 @@ nav ul li {
 
 .hero-text h2 span {
   color: var(--primary-color);
+  font-family: var(--secondary-font);
 }
 
 .hero-text p {
@@ -213,6 +219,7 @@ main {
 }
 
 .comesoon h2 {
+  font-family: var(--secondary-font);
   text-transform: uppercase;
   font-size: 7rem;
   font-weight: 700;
@@ -222,6 +229,7 @@ main {
 }
 
 .timer {
+  font-family: var(--secondary-font);
   display: flex;
   align-items: start;
   justify-content: center;
@@ -398,7 +406,44 @@ main {
   border-radius: 50px;
   cursor: pointer;
 }
-
 /* support section end */
 
+/* Get Ready section start  */
+.getready-section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: start;
+  gap: 8px;
+  color: #fff;
+}
+/* support section end */
+
+/* prepare section start  */
+.prepare-section {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 30px;
+  color: var(--primary-color);
+  background-color: #fff;
+}
+
+.prepare-section h2 {
+  color: var(--primary-color);
+}
+.event-date {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 36px;
+}
+.venue {
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  height: 8.2rem;
+  width: 9rem;
+}
 /* main ends here  */
