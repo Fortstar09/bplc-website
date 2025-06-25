@@ -3,115 +3,157 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bplc website</title>
-    <!-- Link to external CSS -->
+    <title>BPLC Website</title>
+    <!-- External font imports -->
     <link
       href="https://db.onlinewebfonts.com/c/44620fe64734f268ad07740e6ec5127d?family=CoolveticaRg-Regular+V1"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Header Section -->
     <header>
-      <nav class="">
-        <div>
-          <img src="assets\logo.svg" alt="bplc-logo" />
+      <!-- Navigation -->
+      <nav>
+        <div class="nav-logo">
+          <img src="assets/logo.svg" alt="BPLC Logo" />
         </div>
-        <ul class="links">
-          <li>Home</li>
-          <li>Sponsors</li>
-          <li>Donations</li>
-          <li>Team Leads</li>
-          <li>About Us</li>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#sponsors">Sponsors</a></li>
+          <li><a href="#team">Team Leads</a></li>
+          <li><a href="#about">About Us</a></li>
         </ul>
-        <div class="register">
-          <a href="#">Register Now</a>
+        <!-- Mobile menu toggle
+        <div class="mobile-menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div> -->
+        <div class="register-btn">
+          <a href="#register">Register Now</a>
         </div>
       </nav>
-      <section class="hero-section">
+
+      <!-- Hero Section -->
+      <section class="hero-section" id="home">
         <div class="hero-content">
           <div class="hero-text">
-            <h2>Activating Success through <span>Leadership.</span></h2>
+            <h1>Activating Success through <span>Leadership.</span></h1>
             <p>
               Join changemakers, bold thinkers, and rising leaders as we
-              redefine leadership for a world that won&apos;t wait.
+              redefine leadership for a world that won't wait.
             </p>
           </div>
-          <div class="hero-btn">
-            <a href="#" class="btn-fill">Regitser Now</a>
-            <a href="#" class="btn-stroke">Donate</a>
+          <div class="hero-buttons">
+            <a href="#register" class="btn btn-primary">Register Now</a>
+            <a href="#donate" class="btn btn-secondary">Donate</a>
           </div>
         </div>
       </section>
     </header>
+
+    <!-- Main Content -->
     <main>
-      <section class="margin-x">
-        <div class="count-container">
-          <div class="count-first-item">
-            <div class="comesoon">
-              <img src="assets/line-top.svg" alt="" />
+      <!-- Countdown Section -->
+      <section class="countdown-section">
+        <div class="container">
+          <div class="countdown-container">
+            <!-- Coming Soon Header -->
+            <div class="coming-soon">
+              <img src="assets/line-top.svg" alt="Decorative line" />
               <h2>Coming Soon</h2>
-              <img src="assets/line-bottom.svg" alt="" />
+              <img src="assets/line-bottom.svg" alt="Decorative line" />
             </div>
+
+            <!-- Timer Display -->
             <div class="timer">
-              <div id="day">169<span>Days</span></div>
-              <div>:</div>
-              <div id="hour">18<span>Hours</span></div>
-              <div>:</div>
-              <div id="min">37<span>Minutes</span></div>
-              <div>:</div>
-              <div id="sec">20<span>Second</span></div>
+              <div class="time-unit">
+                <span id="days">169</span>
+                <small>Days</small>
+              </div>
+              <div class="separator">:</div>
+              <div class="time-unit">
+                <span id="hours">18</span>
+                <small>Hours</small>
+              </div>
+              <div class="separator">:</div>
+              <div class="time-unit">
+                <span id="minutes">37</span>
+                <small>Minutes</small>
+              </div>
+              <div class="separator">:</div>
+              <div class="time-unit">
+                <span id="seconds">20</span>
+                <small>Seconds</small>
+              </div>
             </div>
-          </div>
-          <div class="count-second-item">
-            <p>
-              Be the first to get the latest update about our conference.
-              <span>Subscribe to our newsletter</span>
-            </p>
-            <img src="assets/line-arrow.svg" alt="" />
-          </div>
-          <div class="form-wrapper">
-            <input type="email" placeholder="Email" class="email-input" />
-            <button class="submit-btn">Submit</button>
+
+            <!-- Newsletter Signup -->
+            <div class="newsletter-signup">
+              <p>
+                Be the first to get the latest update about our conference.
+                <span>Subscribe to our newsletter</span>
+              </p>
+              <img src="assets/line-arrow.svg" alt="Arrow pointing to form" />
+
+              <form class="email-form">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  class="email-input"
+                  required
+                />
+                <button type="submit" class="submit-btn">Submit</button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
-      <section class="margin-x">
-        <div class="about-container">
+
+      <!-- About Section -->
+      <section class="about-section" id="about">
+        <div class="container">
           <div class="about-content">
-            <h2 class="head-text">About Beyond Pointers</h2>
-            <p>
-              Beyond Pointers Leadership Conference 1.0 (BPLC 1.0) is a platform
-              designed to shift the perception of leadership from position to
-              purpose. It inspires individuals to embrace leadership qualities
-              in everyday life to activate success, achieve their goals, and
-              positively impact their communities.
-            </p>
-          </div>
-          <div class="about-card-container">
-            <div class="card">
-              <h2>Our Vision</h2>
+            <div class="about-text">
+              <h2 class="section-title">About Beyond Pointers</h2>
               <p>
-                Beyond Pointers Leadership Conference 1.0 (BPLC 1.0) is an
-                initiative to create awareness,
+                Beyond Pointers Leadership Conference 1.0 (BPLC 1.0) is a
+                platform designed to shift the perception of leadership from
+                position to purpose. It inspires individuals to embrace
+                leadership qualities in everyday life to activate success,
+                achieve their goals, and positively impact their communities.
               </p>
-              <a href="">Read more</a>
             </div>
-            <div class="card">
-              <h2>Our Mission</h2>
-              <p>
-                Beyond Pointers Leadership Conference 1.0 (BPLC 1.0) is an
-                initiative to create awareness,
-              </p>
-              <a href="">Read more</a>
+
+            <!-- Vision and Mission Cards -->
+            <div class="about-cards">
+              <div class="card vision-card">
+                <h3>Our Vision</h3>
+                <p>
+                  Beyond Pointers Leadership Conference 1.0 (BPLC 1.0) is an
+                  initiative to create awareness,
+                </p>
+                <a href="#vision" class="read-more">Read more</a>
+              </div>
+              <div class="card mission-card">
+                <h3>Our Mission</h3>
+                <p>
+                  Beyond Pointers Leadership Conference 1.0 (BPLC 1.0) is an
+                  initiative to create awareness,
+                </p>
+                <a href="#mission" class="read-more">Read more</a>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <section class="margin-x">
-        <div class="support-section">
-          <h2 class="head-text">Support the vision</h2>
+
+      <!-- Support Section -->
+      <!-- <section class="support-section" id="donations">
+        <div class="container">
+          <h2 class="section-title">Support the vision</h2>
           <p>
             Your donation helps us equip young leaders with tools, training, and
             opportunities to grow and create real impact. Every gift goes toward
@@ -119,118 +161,232 @@
             most. Your donation powers events, resources, and the growth of
             emerging changemakers.
           </p>
-          <a href="" class="btn">Donate</a>
+          <a href="#donate" class="btn btn-white">Donate</a>
         </div>
-      </section>
-      <section class="margin-x">
-        <div class="getready-section">
-          <h2 class="head-text">Get Ready for BPLC 1.0</h2>
-          <p>
-            Here&apos;s everything you need to know — from the event schedule
-            and venue details to FAQs and how to prepare. This guide is designed
-            to help you stay informed, and get the most out of your experience.
-          </p>
-        </div>
+      </section> -->
 
-        <div class="prepare-box">
-          <div class="event-date">
-            <div class="venue">
-              <h3>Akure</h3>
-              <p>venue</p>
-            </div>
-
-            <div class="date">
-              <h3>30th of Febuary, 2023</h3>
-              <p>Date</p>
-            </div>
-
-            <div class="time">
-              <h3>11:00pm</h3>
-              <p>Time</p>
-            </div>
-          </div>
-          <div class="event-text">
-            <h2 class="head-text">How to prepare for BPLC 1.0</h2>
-            <p>
-              To make the most of BPLC 1.0, take time to review the event
-              schedule and set clear goals for what you hope to learn or who
-              you&apos;d like to meet. Bring a notebook or device for notes,
-              dress smart-casual, and come ready to connect. A quick look at the
-              speakers and topics beforehand can deepen your experience. Most
-              importantly, arrive with an open mind, ready to learn, reflect,
-              and grow as a leader.
+      <!-- Event Preparation Section -->
+      <section class="preparation-section">
+        <div class="container">
+          <div class="prep-header">
+            <h2 class="section-title">Get Ready for BPLC 1.0</h2>
+            <p class="section-subtitle">
+              This guide is designed to help you stay informed, and get the most
+              out of your experience.
             </p>
           </div>
+
+          <!-- Event Details Card -->
+          <div class="event-details-card">
+            <div class="event-info">
+              <div class="info-item">
+                <h3>Akure</h3>
+                <p>Venue</p>
+              </div>
+              <div class="info-item">
+                <h3>30th of February, 2025</h3>
+                <p>Date</p>
+              </div>
+              <div class="info-item">
+                <h3>11:00 AM</h3>
+                <p>Time</p>
+              </div>
+            </div>
+
+            <div class="prep-content">
+              <h3>How to prepare for BPLC 1.0</h3>
+              <p>
+                Bring a notebook or device for notes, dress smart-casual, and
+                come ready to connect. A quick look at the speakers and topics
+                beforehand can deepen your experience. Most importantly, arrive
+                with an open mind, ready to learn, reflect, and grow as a
+                leader.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
-      <section class="margin-x">
-        <div class="teamlead-section">
-          <h2 class="head-text">Meet Our Team Leads</h2>
-          <p>
-            Learn about the innovative minds behind our projects. Our team leads
-            are a collective of passionate professionals, each offering distinct
-            expertise, who work together to create and deliver impactful
-            results.
+
+      <!-- Team Leads Section -->
+      <section class="team-section" id="team">
+        <div class="container">
+          <h2 class="section-title">Meet Our Team Leads</h2>
+          <p class="section-subtitle">
+            Learn about the innovative minds behind our projects.
           </p>
-          <div class="face-box">
-            <div>
-              <img src="assets/face.png" class="face" alt="teamlead face" />
-              <h3>Name of Person</h3>
+
+          <!-- Team Grid -->
+          <div class="team-grid">
+            <div class="team-member">
+              <img
+                src="assets/face.png"
+                alt="Team member"
+                class="member-photo"
+              />
+              <h4>Name of Person</h4>
               <p>Name of Role</p>
             </div>
-            <div>
-              <img src="assets/face.png" class="face" alt="teamlead face" />
-              <h3>Name of Person</h3>
+            <div class="team-member">
+              <img
+                src="assets/face.png"
+                alt="Team member"
+                class="member-photo"
+              />
+              <h4>Name of Person</h4>
               <p>Name of Role</p>
             </div>
-            <div>
-              <img src="assets/face.png" class="face" alt="teamlead face" />
-              <h3>Name of Person</h3>
+            <div class="team-member">
+              <img
+                src="assets/face.png"
+                alt="Team member"
+                class="member-photo"
+              />
+              <h4>Name of Person</h4>
               <p>Name of Role</p>
             </div>
-            <div>
-              <img src="assets/face.png" class="face" alt="teamlead face" />
-              <h3>Name of Person</h3>
+            <div class="team-member">
+              <img
+                src="assets/face.png"
+                alt="Team member"
+                class="member-photo"
+              />
+              <h4>Name of Person</h4>
               <p>Name of Role</p>
             </div>
-            <div>
-              <img src="assets/face.png" class="face" alt="teamlead face" />
-              <h3>Name of Person</h3>
+            <div class="team-member">
+              <img
+                src="assets/face.png"
+                alt="Team member"
+                class="member-photo"
+              />
+              <h4>Name of Person</h4>
               <p>Name of Role</p>
             </div>
-            <div>
-              <img src="assets/face.png" class="face" alt="teamlead face" />
-              <h3>Name of Person</h3>
+            <div class="team-member">
+              <img
+                src="assets/face.png"
+                alt="Team member"
+                class="member-photo"
+              />
+              <h4>Name of Person</h4>
               <p>Name of Role</p>
             </div>
-            <div>
-              <img src="assets/face.png" class="face" alt="teamlead face" />
-              <h3>Name of Person</h3>
+            <div class="team-member">
+              <img
+                src="assets/face.png"
+                alt="Team member"
+                class="member-photo"
+              />
+              <h4>Name of Person</h4>
               <p>Name of Role</p>
             </div>
-            <div>
-              <img src="assets/face.png" class="face" alt="teamlead face" />
-              <h3>Name of Person</h3>
+            <div class="team-member">
+              <img
+                src="assets/face.png"
+                alt="Team member"
+                class="member-photo"
+              />
+              <h4>Name of Person</h4>
               <p>Name of Role</p>
             </div>
           </div>
         </div>
       </section>
-      <section class="margin-x">
-        <div class="faq-container">
+
+      <!-- Partners Section -->
+      <section class="partners-section" id="sponsors">
+        <div class="partners-container">
+          <div class="partners-header">
+            <div class="header-content">
+              <h2 class="section-title">Our Partners and Investors</h2>
+              <p class="partners-subtitle">
+                Meet the innovators and leaders who are changing the world with
+                Beyond Pointers.
+              </p>
+            </div>
+            <a href="#connect" class="connect-link desktop-only">
+              <span>Want in? Connect with us.</span>
+              <svg
+                class="arrow-icon"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                ></path>
+              </svg>
+            </a>
+          </div>
+
+          <!-- Partners Grid -->
+          <div class="partners-grid">
+            <div class="partner-card">
+              <div class="partner-logo">DARTMOUTH</div>
+            </div>
+            <div class="partner-card">
+              <div class="partner-logo">US ARMY APPLICATIONS LABORATORY</div>
+            </div>
+            <div class="partner-card">
+              <div class="nasa-logo">
+                <span class="nasa-text">NASA</span>
+              </div>
+            </div>
+            <div class="partner-card">
+              <div class="partner-logo">Stanford University</div>
+            </div>
+            <div class="partner-card">
+              <div class="delta-symbol">Δ</div>
+            </div>
+            <div class="partner-card">
+              <div class="partner-logo">America's SEED FUND</div>
+            </div>
+            <div class="partner-card">
+              <div class="shell-emoji">🐚</div>
+            </div>
+            <div class="partner-card view-more">
+              <div class="view-more-text">View more</div>
+            </div>
+          </div>
+
+          <!-- Mobile Connect Link -->
+          <a href="#connect" class="connect-link mobile-only">
+            <span>Want in? Connect with us.</span>
+            <svg
+              class="arrow-icon"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 5l7 7-7 7"
+              ></path>
+            </svg>
+          </a>
+        </div>
+      </section>
+
+      <!-- FAQ Section -->
+      <section class="faq-section">
+        <div class="container">
           <div class="faq-header">
-            <h2 class="head-text">Got a question</h2>
-            <p class="subtitle">
-              Everything you need to know about BPLC 1.0. can't find what you're
-              looking for?
-              <span class="highlight">Contact our support team.</span>
+            <h2 class="section-title">Got a question?</h2>
+            <p class="faq-subtitle section-subtitle">
+              Everything you need to know about BPLC 1.0.
             </p>
           </div>
+
           <!-- FAQ Items -->
           <div class="faq-list">
-            <div class="faq-item" data-id="1">
-              <button class="faq-button" aria-expanded="true">
-                <h3 class="question">
+            <div class="faq-item" data-expanded="false">
+              <button class="faq-button" aria-expanded="false">
+                <h3 class="faq-question">
                   Can I network with other attendees and speakers?
                 </h3>
                 <div class="icon-wrapper">
@@ -242,16 +398,14 @@
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
                   >
-                    <polyline points="18,15 12,9 6,15"></polyline>
+                    <polyline points="6,9 12,15 18,9"></polyline>
                   </svg>
                 </div>
               </button>
-              <div class="answer-wrapper open">
+              <div class="faq-answer">
                 <div class="answer-content">
-                  <p class="answer">
+                  <p>
                     Absolutely! BPLC 1.0 is designed to create space for
                     meaningful conversations. There will be designated times for
                     networking, Q&A sessions, and community-building activities.
@@ -260,9 +414,11 @@
               </div>
             </div>
 
-            <div class="faq-item" data-id="2">
+            <div class="faq-item" data-expanded="false">
               <button class="faq-button" aria-expanded="false">
-                <h3 class="question">What should I bring to the conference?</h3>
+                <h3 class="faq-question">
+                  What should I bring to the conference?
+                </h3>
                 <div class="icon-wrapper">
                   <svg
                     class="chevron"
@@ -272,16 +428,14 @@
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
                   >
                     <polyline points="6,9 12,15 18,9"></polyline>
                   </svg>
                 </div>
               </button>
-              <div class="answer-wrapper">
+              <div class="faq-answer">
                 <div class="answer-content">
-                  <p class="answer">
+                  <p>
                     We recommend bringing a notebook for taking notes, business
                     cards for networking, and an open mind ready to learn. All
                     materials and refreshments will be provided.
@@ -290,9 +444,9 @@
               </div>
             </div>
 
-            <div class="faq-item" data-id="3">
+            <div class="faq-item" data-expanded="false">
               <button class="faq-button" aria-expanded="false">
-                <h3 class="question">Will sessions be recorded?</h3>
+                <h3 class="faq-question">Will sessions be recorded?</h3>
                 <div class="icon-wrapper">
                   <svg
                     class="chevron"
@@ -302,16 +456,14 @@
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
                   >
                     <polyline points="6,9 12,15 18,9"></polyline>
                   </svg>
                 </div>
               </button>
-              <div class="answer-wrapper">
+              <div class="faq-answer">
                 <div class="answer-content">
-                  <p class="answer">
+                  <p>
                     Select sessions will be recorded and made available to
                     registered attendees within 48 hours of the event. You'll
                     receive access links via email.
@@ -320,9 +472,11 @@
               </div>
             </div>
 
-            <div class="faq-item" data-id="4">
+            <div class="faq-item" data-expanded="false">
               <button class="faq-button" aria-expanded="false">
-                <h3 class="question">Is there a dress code for the event?</h3>
+                <h3 class="faq-question">
+                  Is there a dress code for the event?
+                </h3>
                 <div class="icon-wrapper">
                   <svg
                     class="chevron"
@@ -332,16 +486,14 @@
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
                   >
                     <polyline points="6,9 12,15 18,9"></polyline>
                   </svg>
                 </div>
               </button>
-              <div class="answer-wrapper">
+              <div class="faq-answer">
                 <div class="answer-content">
-                  <p class="answer">
+                  <p>
                     Business casual attire is recommended. We want everyone to
                     feel comfortable while maintaining a professional atmosphere
                     conducive to networking and learning.
@@ -350,9 +502,9 @@
               </div>
             </div>
 
-            <div class="faq-item" data-id="5">
+            <div class="faq-item" data-expanded="false">
               <button class="faq-button" aria-expanded="false">
-                <h3 class="question">
+                <h3 class="faq-question">
                   What if I need to cancel my registration?
                 </h3>
                 <div class="icon-wrapper">
@@ -364,16 +516,14 @@
                     fill="none"
                     stroke="currentColor"
                     stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
                   >
                     <polyline points="6,9 12,15 18,9"></polyline>
                   </svg>
                 </div>
               </button>
-              <div class="answer-wrapper">
+              <div class="faq-answer">
                 <div class="answer-content">
-                  <p class="answer">
+                  <p>
                     Cancellations made 30 days before the event receive a full
                     refund. Cancellations within 30 days are subject to a 25%
                     processing fee. No refunds for no-shows.
@@ -391,14 +541,121 @@
                 Our team is here to help you make the most of your BPLC 1.0
                 experience.
               </p>
-              <button class="contact-button">Contact Support</button>
+              <button type="button" class="contact-button">
+                Contact Support
+              </button>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- Link to external JavaScript -->
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-top">
+        <div class="nav-logo">
+          <img src="assets/logo.svg" alt="BPLC Logo" />
+        </div>
+        <div class="footer-nav">
+          <a href="#">Home</a>
+          <a href="#">Sponsor</a>
+          <a href="#">Team Leads</a>
+          <a href="#">About Us</a>
+        </div>
+
+        <div class="footer-socials">
+          <a href="#"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              x="0px"
+              y="0px"
+              width="18"
+              height="18"
+              viewBox="0,0,256,256"
+            >
+              <g
+                fill="#ffffff"
+                fill-rule="nonzero"
+                stroke="none"
+                stroke-width="1"
+                stroke-linecap="butt"
+                stroke-linejoin="miter"
+                stroke-miterlimit="10"
+                stroke-dasharray=""
+                stroke-dashoffset="0"
+                font-family="none"
+                font-weight="none"
+                font-size="none"
+                text-anchor="none"
+                style="mix-blend-mode: normal"
+              >
+                <g transform="scale(8.53333,8.53333)">
+                  <path
+                    d="M26.37,26l-8.795,-12.822l0.015,0.012l7.93,-9.19h-2.65l-6.46,7.48l-5.13,-7.48h-6.95l8.211,11.971l-0.001,-0.001l-8.66,10.03h2.65l7.182,-8.322l5.708,8.322zM10.23,6l12.34,18h-2.1l-12.35,-18z"
+                  ></path>
+                </g>
+              </g></svg
+          ></a>
+          <a href="#"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+              <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg
+          ></a>
+          <a href="#"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="lucide lucide-youtube-icon lucide-youtube"
+            >
+              <path
+                d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"
+              />
+              <path d="m10 15 5-3-5-3z" /></svg
+          ></a>
+          <a href="#"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"
+              />
+              <rect width="4" height="12" x="2" y="9" />
+              <circle cx="4" cy="4" r="2" /></svg
+          ></a>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © Beyond Pointers 2025, All rights reserved.
+      </div>
+    </footer>
+
     <script src="script.js"></script>
   </body>
 </html>

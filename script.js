@@ -1,378 +1,398 @@
+/**
+ * BPLC Website JavaScript
+ * Handles FAQ functionality, form submissions, and interactive elements
+ */
+
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all FAQ items
-    const faqItems = document.querySelectorAll('.faq-item');
     
-    // Initialize the first item as open
-    const firstItem = faqItems[0];
-    if (firstItem) {
-        firstItem.setAttribute('data-expanded', 'true');
-        const firstAnswer = firstItem.querySelector('.answer-wrapper');
-        if (firstAnswer) {
-            firstAnswer.classList.add('open');
-        }
-    }
+    // ====================================
+    // FAQ FUNCTIONALITY
+    // ====================================
     
-    // Add click event listeners to all FAQ buttons
-    faqItems.forEach(item => {
-        const button = item.querySelector('.faq-button');
-        const answerWrapper = item.querySelector('.answer-wrapper');
+    initializeFAQ();
+    
+    function initializeFAQ() {
+        const faqItems = document.querySelectorAll('.faq-item');
         
-        if (button && answerWrapper) {
-            button.addEventListener('click', function() {
-                const isExpanded = item.getAttribute('data-expanded') === 'true';
-                
-                if (isExpanded) {
-                    // Close the item
-                    item.setAttribute('data-expanded', 'false');
-                    button.setAttribute('aria-expanded', 'false');
-                    answerWrapper.classList.remove('open');
-                } else {
-                    // Open the item
-                    item.setAttribute('data-expanded', 'true');
-                    button.setAttribute('aria-expanded', 'true');
-                    answerWrapper.classList.add('open');
-                }
-            });
-        }
-    });
-    
-    // Add keyboard navigation support
-    faqItems.forEach(item => {
-        const button = item.querySelector('.faq-button');
-        
-        if (button) {
-            button.addEventListener('keydown', function(e) {
-                // Handle Enter and Space keys
-                if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    button.click();
-                }
-                
-                // Handle Arrow key navigation
-                if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-                    e.preventDefault();
-                    
-                    const currentIndex = Array.from(faqItems).indexOf(item);
-                    let nextIndex;
-                    
-                    if (e.key === 'ArrowDown') {
-                        nextIndex = currentIndex + 1;
-                        if (nextIndex >= faqItems.length) {
-                            nextIndex = 0; // Loop to first item
-                        }
-                    } else {
-                        nextIndex = currentIndex - 1;
-                        if (nextIndex < 0) {
-                            nextIndex = faqItems.length - 1; // Loop to last item
-                        }
-                    }
-                    
-                    const nextButton = faqItems[nextIndex].querySelector('.faq-button');
-                    if (nextButton) {
-                        nextButton.focus();
-                    }
-                }
-            });
-        }
-    });
-    
-    // Add contact button functionality
-    const contactButton = document.querySelector('.contact-button');
-    if (contactButton) {
-        contactButton.addEventListener('click', function() {
-            // You can customize this action
-            alert('Contact support functionality would be implemented here!');
-            // Example: window.location.href = 'mailto:support@example.com';
-            // Example: window.open('https://support.example.com', '_blank');
-        });
-    }
-    
-    // Add smooth scrolling for better UX
-    function smoothScrollToElement(element) {
-        element.scrollIntoView({
-            behavior: 'smooth',
-            block: 'nearest'
-        });
-    }
-    
-    // Optional: Auto-scroll to opened FAQ item on mobile
-    if (window.innerWidth <= 768) {
+        // Add click event listeners to all FAQ buttons
         faqItems.forEach(item => {
             const button = item.querySelector('.faq-button');
+            const answer = item.querySelector('.faq-answer');
             
-            if (button) {
+            if (button && answer) {
                 button.addEventListener('click', function() {
-                    setTimeout(() => {
-                        const isExpanded = item.getAttribute('data-expanded') === 'true';
-                        if (isExpanded) {
-                            smoothScrollToElement(item);
-                        }
-                    }, 300); // Wait for animation to start
+                    toggleFAQItem(item, button, answer);
+                });
+                
+                // Add keyboard navigation support
+                button.addEventListener('keydown', function(e) {
+                    handleFAQKeyboard(e, item, faqItems);
                 });
             }
         });
     }
-});
-
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Get all necessary elements
-    const slidesContainer = document.querySelector('.slides-container');
-    const slides = document.querySelectorAll('.slide');
-    const prevButton = document.querySelector('.prev-button');
-    const nextButton = document.querySelector('.next-button');
-    const dots = document.querySelectorAll('.dot');
     
-    // Slider state
-    let currentSlide = 0;
-    const totalSlides = slides.length;
-    let autoPlayInterval;
-    let isAutoPlaying = true;
-    
-    // Initialize slider
-    function initSlider() {
-        updateSlider();
-        updateDots();
-        updateButtons();
-        startAutoPlay();
-    }
-    
-    // Update slider position
-    function updateSlider() {
-        const translateX = -currentSlide * (100 / totalSlides);
-        slidesContainer.style.transform = `translateX(${translateX}%)`;
+    function toggleFAQItem(item, button, answer) {
+        const isExpanded = item.getAttribute('data-expanded') === 'true';
         
-        // Update active slide
-        slides.forEach((slide, index) => {
-            slide.classList.toggle('active', index === currentSlide);
-        });
-    }
-    
-    // Update dots indicator
-    function updateDots() {
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentSlide);
-        });
-    }
-    
-    // Update navigation buttons
-    function updateButtons() {
-        prevButton.disabled = currentSlide === 0;
-        nextButton.disabled = currentSlide === totalSlides - 1;
-    }
-    
-    // Go to specific slide
-    function goToSlide(slideIndex) {
-        if (slideIndex >= 0 && slideIndex < totalSlides) {
-            currentSlide = slideIndex;
-            updateSlider();
-            updateDots();
-            updateButtons();
-        }
-    }
-    
-    // Go to next slide
-    function nextSlide() {
-        if (currentSlide < totalSlides - 1) {
-            currentSlide++;
+        if (isExpanded) {
+            // Close the item
+            item.setAttribute('data-expanded', 'false');
+            button.setAttribute('aria-expanded', 'false');
         } else {
-            currentSlide = 0; // Loop back to first slide
-        }
-        updateSlider();
-        updateDots();
-        updateButtons();
-    }
-    
-    // Go to previous slide
-    function prevSlide() {
-        if (currentSlide > 0) {
-            currentSlide--;
-        } else {
-            currentSlide = totalSlides - 1; // Loop to last slide
-        }
-        updateSlider();
-        updateDots();
-        updateButtons();
-    }
-    
-    // Start auto-play
-    function startAutoPlay() {
-        if (isAutoPlaying) {
-            autoPlayInterval = setInterval(() => {
-                nextSlide();
-            }, 4000); // Change slide every 4 seconds
-        }
-    }
-    
-    // Stop auto-play
-    function stopAutoPlay() {
-        if (autoPlayInterval) {
-            clearInterval(autoPlayInterval);
-            autoPlayInterval = null;
-        }
-    }
-    
-    // Restart auto-play after user interaction
-    function restartAutoPlay() {
-        stopAutoPlay();
-        setTimeout(() => {
-            startAutoPlay();
-        }, 5000); // Restart after 5 seconds of inactivity
-    }
-    
-    // Event listeners for navigation buttons
-    nextButton.addEventListener('click', function() {
-        nextSlide();
-        restartAutoPlay();
-    });
-    
-    prevButton.addEventListener('click', function() {
-        prevSlide();
-        restartAutoPlay();
-    });
-    
-    // Event listeners for dots
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', function() {
-            goToSlide(index);
-            restartAutoPlay();
-        });
-    });
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowLeft') {
-            e.preventDefault();
-            prevSlide();
-            restartAutoPlay();
-        } else if (e.key === 'ArrowRight') {
-            e.preventDefault();
-            nextSlide();
-            restartAutoPlay();
-        }
-    });
-    
-    // Touch/swipe support for mobile
-    let touchStartX = 0;
-    let touchEndX = 0;
-    let isSwiping = false;
-    
-    slidesContainer.addEventListener('touchstart', function(e) {
-        touchStartX = e.changedTouches[0].screenX;
-        isSwiping = true;
-        stopAutoPlay();
-    }, { passive: true });
-    
-    slidesContainer.addEventListener('touchmove', function(e) {
-        if (!isSwiping) return;
-        touchEndX = e.changedTouches[0].screenX;
-    }, { passive: true });
-    
-    slidesContainer.addEventListener('touchend', function(e) {
-        if (!isSwiping) return;
-        isSwiping = false;
-        
-        const swipeThreshold = 50;
-        const swipeDistance = touchStartX - touchEndX;
-        
-        if (Math.abs(swipeDistance) > swipeThreshold) {
-            if (swipeDistance > 0) {
-                // Swipe left - next slide
-                nextSlide();
-            } else {
-                // Swipe right - previous slide
-                prevSlide();
+            // Close all other items first (accordion behavior)
+            closeAllFAQItems();
+            
+            // Open the clicked item
+            item.setAttribute('data-expanded', 'true');
+            button.setAttribute('aria-expanded', 'true');
+            
+            // Smooth scroll to item on mobile
+            if (window.innerWidth <= 768) {
+                setTimeout(() => {
+                    item.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'nearest'
+                    });
+                }, 300);
             }
         }
-        
-        restartAutoPlay();
-    }, { passive: true });
+    }
     
-    // Pause auto-play when user hovers over the slider
-    const sliderContainer = document.querySelector('.slider-container');
+    function closeAllFAQItems() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const button = item.querySelector('.faq-button');
+            item.setAttribute('data-expanded', 'false');
+            if (button) {
+                button.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
     
-    sliderContainer.addEventListener('mouseenter', function() {
-        stopAutoPlay();
-    });
-    
-    sliderContainer.addEventListener('mouseleave', function() {
-        startAutoPlay();
-    });
-    
-    // Handle visibility change (pause when tab is not active)
-    document.addEventListener('visibilitychange', function() {
-        if (document.hidden) {
-            stopAutoPlay();
-        } else {
-            startAutoPlay();
+    function handleFAQKeyboard(e, currentItem, allItems) {
+        // Handle Enter and Space keys
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            const button = currentItem.querySelector('.faq-button');
+            if (button) button.click();
         }
-    });
+        
+        // Handle Arrow key navigation
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+            e.preventDefault();
+            
+            const currentIndex = Array.from(allItems).indexOf(currentItem);
+            let nextIndex;
+            
+            if (e.key === 'ArrowDown') {
+                nextIndex = currentIndex + 1;
+                if (nextIndex >= allItems.length) {
+                    nextIndex = 0; // Loop to first item
+                }
+            } else {
+                nextIndex = currentIndex - 1;
+                if (nextIndex < 0) {
+                    nextIndex = allItems.length - 1; // Loop to last item
+                }
+            }
+            
+            const nextButton = allItems[nextIndex].querySelector('.faq-button');
+            if (nextButton) {
+                nextButton.focus();
+            }
+        }
+    }
     
-    // Intersection Observer for performance (pause when not visible)
-    if ('IntersectionObserver' in window) {
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    startAutoPlay();
-                } else {
-                    stopAutoPlay();
+    // ====================================
+    // FORM HANDLING
+    // ====================================
+    
+    initializeForms();
+    
+    function initializeForms() {
+        // Email subscription form
+        const emailForm = document.querySelector('.email-form');
+        if (emailForm) {
+            emailForm.addEventListener('submit', handleEmailSubmission);
+        }
+        
+        // Contact support button
+        const contactButton = document.querySelector('.contact-button');
+        if (contactButton) {
+            contactButton.addEventListener('click', handleContactSupport);
+        }
+    }
+    
+    function handleEmailSubmission(e) {
+        e.preventDefault();
+        
+        const emailInput = e.target.querySelector('.email-input');
+        const submitBtn = e.target.querySelector('.submit-btn');
+        
+        if (!emailInput || !emailInput.value.trim()) {
+            showNotification('Please enter a valid email address', 'error');
+            return;
+        }
+        
+        // Validate email format
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value.trim())) {
+            showNotification('Please enter a valid email address', 'error');
+            return;
+        }
+        
+        // Show loading state
+        const originalText = submitBtn.textContent;
+        submitBtn.textContent = 'Submitting...';
+        submitBtn.disabled = true;
+        
+        // Simulate API call
+        setTimeout(() => {
+            showNotification('Thank you for subscribing to our newsletter!', 'success');
+            emailInput.value = '';
+            submitBtn.textContent = originalText;
+            submitBtn.disabled = false;
+        }, 1500);
+        
+        console.log('Email subscription:', emailInput.value);
+    }
+    
+    function handleContactSupport() {
+        // You can customize this action
+        showNotification('Redirecting to support...', 'info');
+        
+        // Example implementations:
+        // window.location.href = 'mailto:support@bplc.com';
+        // window.open('https://support.bplc.com', '_blank');
+        
+        console.log('Contact support clicked');
+    }
+    
+    // ====================================
+    // PARTNER CARDS INTERACTION
+    // ====================================
+    
+    initializePartnerCards();
+    
+    function initializePartnerCards() {
+        const partnerCards = document.querySelectorAll('.partner-card');
+        
+        partnerCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const logo = this.querySelector('.partner-logo, .view-more-text, .nasa-text');
+                if (logo) {
+                    const partnerName = logo.textContent.trim();
+                    console.log('Partner clicked:', partnerName);
+                    
+                    // Show notification for demo
+                    if (partnerName === 'View more') {
+                        showNotification('Loading more partners...', 'info');
+                    } else {
+                        showNotification(`Learn more about ${partnerName}`, 'info');
+                    }
                 }
             });
-        }, {
-            threshold: 0.5
-        });
-        
-        observer.observe(document.querySelector('.sponsors-section'));
-    }
-    
-    // Add smooth scroll behavior for better UX
-    function smoothScrollToSlider() {
-        document.querySelector('.sponsors-section').scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
-        });
-    }
-    
-    // Initialize the slider
-    initSlider();
-    
-    // Add loading animation
-    setTimeout(() => {
-        document.querySelector('.sponsors-section').classList.add('loaded');
-    }, 100);
-    
-    // Handle window resize
-    let resizeTimeout;
-    window.addEventListener('resize', function() {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            updateSlider();
-        }, 250);
-    });
-    
-    // Add focus management for accessibility
-    slides.forEach((slide, index) => {
-        const sponsorCards = slide.querySelectorAll('.sponsor-card');
-        sponsorCards.forEach(card => {
-            card.setAttribute('tabindex', index === currentSlide ? '0' : '-1');
-        });
-    });
-    
-    // Update focus when slide changes
-    function updateFocus() {
-        slides.forEach((slide, index) => {
-            const sponsorCards = slide.querySelectorAll('.sponsor-card');
-            sponsorCards.forEach(card => {
-                card.setAttribute('tabindex', index === currentSlide ? '0' : '-1');
+            
+            // Add hover sound effect or animation
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
             });
         });
     }
     
-    // Override updateSlider to include focus management
-    const originalUpdateSlider = updateSlider;
-    updateSlider = function() {
-        originalUpdateSlider();
-        updateFocus();
-    };
+    // ====================================
+    // NAVIGATION FUNCTIONALITY
+    // ====================================
+    
+    initializeNavigation();
+    
+    function initializeNavigation() {
+        // Mobile menu toggle
+        const mobileToggle = document.querySelector('.mobile-menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+        
+        if (mobileToggle && navLinks) {
+            mobileToggle.addEventListener('click', function() {
+                navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+                this.classList.toggle('active');
+            });
+        }
+        
+        // Smooth scrolling for navigation links
+        const navLinksElements = document.querySelectorAll('.nav-links a, .connect-link');
+        navLinksElements.forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                
+                // Only handle internal links (starting with #)
+                if (href && href.startsWith('#')) {
+                    e.preventDefault();
+                    const targetSection = document.querySelector(href);
+                    
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                }
+            });
+        });
+    }
+    
+    // ====================================
+    // COUNTDOWN TIMER (Optional Enhancement)
+    // ====================================
+    
+    initializeCountdown();
+    
+    function initializeCountdown() {
+        // Set target date (example: 6 months from now)
+        const targetDate = new Date();
+        targetDate.setMonth(targetDate.getMonth() + 6);
+        
+        const daysElement = document.getElementById('days');
+        const hoursElement = document.getElementById('hours');
+        const minutesElement = document.getElementById('minutes');
+        const secondsElement = document.getElementById('seconds');
+        
+        if (daysElement && hoursElement && minutesElement && secondsElement) {
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate.getTime() - now;
+            
+            if (distance < 0) {
+                // Countdown finished
+                daysElement.textContent = '0';
+                hoursElement.textContent = '0';
+                minutesElement.textContent = '0';
+                secondsElement.textContent = '0';
+                return;
+            }
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            daysElement.textContent = days.toString().padStart(2, '0');
+            hoursElement.textContent = hours.toString().padStart(2, '0');
+            minutesElement.textContent = minutes.toString().padStart(2, '0');
+            secondsElement.textContent = seconds.toString().padStart(2, '0');
+        }
+    }
+    
+    // ====================================
+    // UTILITY FUNCTIONS
+    // ====================================
+    
+    function showNotification(message, type = 'info') {
+        // Create notification element
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.textContent = message;
+        
+        // Style the notification
+        Object.assign(notification.style, {
+            position: 'fixed',
+            top: '2rem',
+            right: '2rem',
+            padding: '1rem 2rem',
+            borderRadius: '0.5rem',
+            color: 'white',
+            fontSize: '1.4rem',
+            fontWeight: '600',
+            zIndex: '9999',
+            opacity: '0',
+            transform: 'translateY(-2rem)',
+            transition: 'all 0.3s ease'
+        });
+        
+        // Set background color based on type
+        const colors = {
+            success: '#10b981',
+            error: '#ef4444',
+            info: '#3b82f6',
+            warning: '#f59e0b'
+        };
+        notification.style.backgroundColor = colors[type] || colors.info;
+        
+        // Add to DOM
+        document.body.appendChild(notification);
+        
+        // Animate in
+        setTimeout(() => {
+            notification.style.opacity = '1';
+            notification.style.transform = 'translateY(0)';
+        }, 100);
+        
+        // Remove after 3 seconds
+        setTimeout(() => {
+            notification.style.opacity = '0';
+            notification.style.transform = 'translateY(-2rem)';
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.parentNode.removeChild(notification);
+                }
+            }, 300);
+        }, 3000);
+    }
+    
+    // ====================================
+    // PERFORMANCE OPTIMIZATIONS
+    // ====================================
+    
+    // Lazy loading for images (if needed)
+    function initializeLazyLoading() {
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+            
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            lazyImages.forEach(img => imageObserver.observe(img));
+        }
+    }
+    
+    // Throttle function for scroll events
+    function throttle(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+    
+    // Handle window resize events
+    const handleResize = throttle(() => {
+        // Re-initialize components that need resize handling
+        console.log('Window resized');
+    }, 250);
+    
+    window.addEventListener('resize', handleResize);
+    
+    // Initialize lazy loading
+    initializeLazyLoading();
+    
+    console.log('BPLC Website initialized successfully');
 });
