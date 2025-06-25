@@ -648,7 +648,6 @@ main > section {
 .partners-container {
   max-width: 120rem;
   margin: 0 auto;
-  padding: 0 2.4rem;
 }
 
 .partners-header {
@@ -827,8 +826,7 @@ main > section {
   font-size: 1.6rem;
   line-height: 1.6;
   max-width: 80rem;
-  margin: 0 auto;
-}
+  }
 
 .highlight {
   display: block;
