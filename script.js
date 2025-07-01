@@ -253,8 +253,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function initializeCountdown() {
         // Set target date (example: 6 months from now)
-        const targetDate = new Date();
-        targetDate.setMonth(targetDate.getMonth() + 6);
+        const targetDate = new Date(2025, 7, 9, 10, 0, 0);
         
         const daysElement = document.getElementById('days');
         const hoursElement = document.getElementById('hours');

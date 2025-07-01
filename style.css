@@ -210,7 +210,7 @@ nav {
 
 .hero-section {
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)),
-    url("assets/hero.png") center/cover no-repeat;
+    url("assets/hero.avif") center/cover no-repeat;
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -284,6 +284,10 @@ main > section {
   border: 2px solid var(--white);
   border-radius: var(--border-radius);
   padding: 6.4rem 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   text-align: center;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
@@ -315,10 +319,11 @@ main > section {
   align-items: center;
   justify-content: center;
   gap: 4rem;
+  max-width: 90rem;
   margin-bottom: 4rem;
   border: 1px solid var(--white);
   border-radius: 0.8rem;
-  padding: 2rem 4rem;
+  padding: 2rem 10rem;
   font-family: var(--secondary-font);
 }
 
@@ -444,7 +449,7 @@ main > section {
   border-radius: var(--border-radius);
   text-align: left;
   transition: var(--transition);
-  max-width: 30rem;
+  max-width: 50rem;
 }
 
 .vision-card {
@@ -469,6 +474,7 @@ main > section {
 .card p {
   font-size: 1.6rem;
   line-height: 1.6;
+  max-width: 60rem;
   margin-bottom: 1.6rem;
 }
 
@@ -531,7 +537,7 @@ main > section {
   border-radius: var(--border-radius);
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 2fr;
   min-height: 30rem;
 }
 
@@ -551,7 +557,9 @@ main > section {
 .info-item h3 {
   font-size: 3rem;
   font-weight: 600;
-  margin-bottom: 1rem;
+  max-width: 200px;
+  text-align: center;
+  margin-bottom: 0.2rem;
 }
 
 .info-item p {
@@ -605,14 +613,17 @@ main > section {
   color: var(--white);
   transition: var(--transition);
 }
+.team-member img {
+  cursor: pointer;
+}
 
 .team-member:hover {
   transform: translateY(-1rem);
 }
 
 .member-photo {
-  width: 20rem;
-  height: 20rem;
+  width: 22rem;
+  height: 22rem;
   border-radius: 10px;
   object-fit: cover;
   margin-bottom: 0.7rem;
@@ -620,7 +631,7 @@ main > section {
 }
 
 .team-member:hover .member-photo {
-  box-shadow: 0 2rem 4rem rgba(255, 255, 255, 0.2);
+  box-shadow: 0 2rem 4rem rgba(255, 255, 255, 0.445);
 }
 
 .team-member h4 {
@@ -670,6 +681,7 @@ main > section {
   font-size: 1.8rem;
   max-width: 40rem;
   line-height: 1.6;
+  text-align: left;
 }
 
 .connect-link {
@@ -699,36 +711,32 @@ main > section {
 .partners-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  border: 1px solid #e5e7eb;
+  /* border: 1px solid #e5e7eb; */
   border-radius: 0.8rem;
-  overflow: hidden;
+  /* overflow: hidden; */
   margin-bottom: 3.2rem;
 }
 
 .partner-card {
   aspect-ratio: 1;
+  width: 25rem;
+  height: 25rem;
+  padding: 1rem;
+  border-top: 1px solid #e5e7eb;
+
   border-right: 1px solid #e5e7eb;
   border-bottom: 1px solid #e5e7eb;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 3.2rem;
   cursor: pointer;
   transition: var(--transition);
   background: var(--white);
 }
 
-.partner-card:nth-child(4n) {
-  border-right: none;
-}
-
-.partner-card:nth-last-child(-n + 4) {
-  border-bottom: none;
-}
-
 .partner-card:hover {
   border-color: #3b82f6;
-  background-color: #eff6ff;
+  background-color: #fff;
   transform: scale(1.02);
 }
 
@@ -740,6 +748,17 @@ main > section {
   background-color: #f3f4f6;
 }
 
+.partner-card img {
+  width: 100%;
+  height: 100%;
+  filter: grayscale(100%);
+  object-fit: contain;
+}
+
+.partner-card img:hover {
+  filter: grayscale(0%);
+}
+
 .partner-logo {
   text-align: center;
   font-weight: 600;
@@ -747,10 +766,6 @@ main > section {
   line-height: 1.3;
   color: var(--black);
   transition: var(--transition);
-}
-
-.partner-card:hover .partner-logo {
-  color: #3b82f6;
 }
 
 .nasa-logo {
@@ -772,26 +787,6 @@ main > section {
   color: var(--white);
   font-weight: bold;
   font-size: 1.2rem;
-}
-
-.shell-emoji {
-  font-size: 3.2rem;
-  transition: var(--transition);
-}
-
-.partner-card:hover .shell-emoji {
-  filter: hue-rotate(20deg) saturate(1.5);
-}
-
-.delta-symbol {
-  font-size: 4.8rem;
-  font-weight: 300;
-  color: var(--black);
-  transition: var(--transition);
-}
-
-.partner-card:hover .delta-symbol {
-  color: #3b82f6;
 }
 
 .view-more-text {
@@ -826,7 +821,7 @@ main > section {
   font-size: 1.6rem;
   line-height: 1.6;
   max-width: 80rem;
-  }
+}
 
 .highlight {
   display: block;
@@ -1070,8 +1065,15 @@ footer {
     text-align: left;
   }
 
-  .about-cards  {
+  .about-cards {
     gap: 3rem;
+  }
+
+  /* Timer */
+  .timer {
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding: 2rem 9rem;
   }
 
   .event-details-card {
@@ -1087,16 +1089,19 @@ footer {
     grid-template-columns: repeat(3, 1fr);
   }
 
+  .member-photo {
+    width: 18rem;
+    height: 18rem;
+  }
+
   .partners-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  .partner-card:nth-child(3n) {
+  .partner-card {
+    width: 20rem;
+    height: 20rem;
     border-right: none;
-  }
-
-  .partner-card:nth-child(4n) {
-    border-right: 1px solid #e5e7eb;
   }
 }
 
@@ -1148,7 +1153,7 @@ footer {
   .timer {
     flex-wrap: wrap;
     gap: 2rem;
-    padding: 2rem;
+    padding: 2rem 10rem;
   }
 
   .time-unit span {
@@ -1187,8 +1192,8 @@ footer {
   }
 
   .member-photo {
-    width: 15rem;
-    height: 15rem;
+    width: 20rem;
+    height: 20rem;
   }
 
   /* Partners section */
@@ -1207,16 +1212,10 @@ footer {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .partner-card:nth-child(even) {
+  .partner-card {
+    width: 100%;
+    height: 100%;
     border-right: none;
-  }
-
-  .partner-card:nth-child(3n) {
-    border-right: 1px solid #e5e7eb;
-  }
-
-  .partner-card:nth-last-child(-n + 2) {
-    border-bottom: none;
   }
 
   .connect-link.mobile-only {
@@ -1240,7 +1239,7 @@ footer {
 
 /* Small Mobile Styles */
 @media (max-width: 480px) {
-  .register-btn{
+  .register-btn {
     padding: 0.5rem 1rem;
   }
   .register-btn a {
@@ -1286,8 +1285,12 @@ footer {
   }
 
   .member-photo {
-    width: 12rem;
-    height: 12rem;
+    width: 13rem;
+    height: 13rem;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(1, 1fr);
   }
 
   .faq-button {
