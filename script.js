@@ -179,20 +179,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const partnerCards = document.querySelectorAll('.partner-card');
         
         partnerCards.forEach(card => {
-            // card.addEventListener('click', function() {
-            //     const logo = this.querySelector('.partner-logo, .view-more-text, .nasa-text');
-            //     if (logo) {
-            //         const partnerName = logo.textContent.trim();
-            //         console.log('Partner clicked:', partnerName);
-                    
-            //         // Show notification for demo
-            //         if (partnerName === 'View more') {
-            //             showNotification('Loading more partners...', 'info');
-            //         } else {
-            //             showNotification(`Learn more about ${partnerName}`, 'info');
-            //         }
-            //     }
-            // });
+           
             
             // Add hover sound effect or animation
             card.addEventListener('mouseenter', function() {

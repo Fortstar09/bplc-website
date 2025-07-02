@@ -430,7 +430,7 @@ main > section {
 
 .about-content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 3fr 5fr;
   gap: 8rem;
   align-items: center;
 }
@@ -457,6 +457,11 @@ main > section {
   animation-range: cover 0% cover 40%;
 }
 
+.about-text p span {
+  display: block;
+  margin-bottom: 1rem;
+}
+
 .about-cards {
   display: flex;
   gap: 6rem;
@@ -466,11 +471,14 @@ main > section {
 .card {
   background: var(--white);
   color: var(--primary-color);
-  padding: 2.4rem;
+  padding: 1.5rem;
   border-radius: var(--border-radius);
   text-align: left;
   transition: var(--transition);
-  max-width: 50rem;
+  max-width: 80rem;
+  /* animation: slide-in linear both; */
+  animation-timeline: view();
+  animation-range: cover 0% cover 30%;
 }
 
 .vision-card {
@@ -560,6 +568,9 @@ main > section {
   display: grid;
   grid-template-columns: 3fr 2fr;
   min-height: 30rem;
+  animation: fade-in linear both;
+  animation-timeline: view();
+  animation-range: cover 0% cover 30%;
 }
 
 .event-info {
@@ -599,9 +610,11 @@ main > section {
   margin-bottom: 2rem;
 }
 
-.prep-content p {
-  font-size: 1.6rem;
+.prep-content ul li {
+  font-size: 1.3rem;
   line-height: 1.8;
+  margin-bottom: 1rem;
+  list-style-type: none;
 }
 
 /* ====================================
@@ -994,6 +1007,7 @@ main > section {
   cursor: pointer;
   font-size: 1.6rem;
   transition: var(--transition);
+  text-decoration: none;
 }
 
 .contact-button:hover {
@@ -1232,7 +1246,7 @@ footer {
     margin-bottom: 1rem;
   }
 
-  .prep-content p {
+  .prep-content ul li {
     font-size: 1.2rem;
   }
 
@@ -1376,7 +1390,7 @@ footer {
 
 @keyframes slide-in {
   0% {
-    transform: translatex(100px);
+    transform: translatex(20px);
     opacity: 0;
   }
   100% {
