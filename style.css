@@ -754,7 +754,9 @@ main > section {
 .partners-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /* border: 1px solid #e5e7eb; */
+  /* border: 1px solid #e5e7eb;
+   */
+   gap: 30px;
   border-radius: 0.8rem;
   /* overflow: hidden; */
   margin-bottom: 3.2rem;
@@ -811,26 +813,8 @@ main > section {
   transition: var(--transition);
 }
 
-.nasa-logo {
-  width: 4.8rem;
-  height: 4.8rem;
-  background-color: var(--black);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: var(--transition);
-}
 
-.partner-card:hover .nasa-logo {
-  background-color: #3b82f6;
-}
 
-.nasa-text {
-  color: var(--white);
-  font-weight: bold;
-  font-size: 1.2rem;
-}
 
 .view-more-text {
   color: var(--gray-medium);
@@ -1271,6 +1255,12 @@ footer {
     height: 100%;
     border-right: none;
   }
+
+
+  
+.partner-card img:hover {
+  filter: grayscale(0%);
+}
 
   .connect-link.mobile-only {
     justify-content: center;
